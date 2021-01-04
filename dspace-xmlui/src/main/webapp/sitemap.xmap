@@ -25,7 +25,9 @@
                         <map:generator name="exception" src="cz.cuni.mff.ufal.dspace.app.xmlui.cocoon.generation.EmailExceptionGenerator"/>
                         <map:generator name="AJAXMenuGenerator"
                              src="org.dspace.app.xmlui.cocoon.AJAXMenuGenerator"/>
-                        <map:generator name="DiscoJuiceFeeds" src="cz.cuni.mff.ufal.DiscoJuiceFeeds" />
+                        <!--
+                            <map:generator name="DiscoJuiceFeeds" src="cz.cuni.mff.ufal.DiscoJuiceFeeds" />
+                        -->
                 </map:generators>
                 <map:serializers default="xml">
                         <map:serializer logger="sitemap.serializer.xml" mime-type="text/xml; charset=utf-8" name="xml"
@@ -268,12 +270,15 @@
         
 
                 <!-- ufal dicojuice feeds -->
+                <!--
                 <map:pipeline type="noncaching">
                     <map:match pattern="discojuice/feeds">
                         <map:generate type="DiscoJuiceFeeds"/>
                         <map:serialize type="json"/>
                     </map:match>
                 </map:pipeline>
+                -->
+                
                 <!-- end feeds -->
                 
 
