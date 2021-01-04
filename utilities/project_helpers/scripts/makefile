@@ -232,9 +232,9 @@ tools_version_check:
 	@cd $(BASE) && python setup.lindat.py --mvn-version=3.0
 
 user_prompt: tools_version_check
-	@echo ""
-	@echo -e "$(RED)Do you really wish to continue? (for Yes type Yes)$(NORMAL)"
-	@python -c 'import sys; sys.exit(-1) if raw_input() != "Yes" else None'
+	# @echo ""
+	# @echo -e "$(RED)Do you really wish to continue? (for Yes type Yes)$(NORMAL)"
+	# @python -c 'import sys; sys.exit(-1) if raw_input() != "Yes" else None'
 
 
 

@@ -1,17 +1,17 @@
 .btn-repository {
 	color: #FFFFFF;
 	text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
-	background-color: #7479B8;
-	*background-color: #7479B8;
-	background-image: -moz-linear-gradient(top, #9FA3E6, #7479B8);
-	background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#9FA3E6), to(#7479B8));
-	background-image: -webkit-linear-gradient(top, #9FA3E6, #7479B8);
-	background-image: -o-linear-gradient(top, #9FA3E6, #7479B8);
-	background-image: linear-gradient(to bottom, #9FA3E6, #7479B8);
+	background-color: #12295D;
+	*background-color: #12295D;
+	background-image: -moz-linear-gradient(top, #1d4196, #12295D);
+	background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#1d4196), to(#12295D));
+	background-image: -webkit-linear-gradient(top, #1d4196, #12295D);
+	background-image: -o-linear-gradient(top, #1d4196, #12295D);
+	background-image: linear-gradient(to bottom, #1d4196, #12295D);
 	background-repeat: repeat-x;
-	border-color: #7479B8;
+	border-color: #12295D;
 	border-color: rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.25);
-	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#9FA3E6', endColorstr='#7479B8', GradientType=0);
+	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#1d4196', endColorstr='#12295D', GradientType=0);
 	filter: progid:DXImageTransform.Microsoft.gradient(enabled=false);
 }
 .btn-repository:hover,
@@ -21,20 +21,20 @@
 .btn-repository.disabled,
 .btn-repository[disabled] {
 	color: #FFFFFF;
-	background-color: #7479B8;
+	background-color: #12295D;
 	*background-color: #003bb3;
 }
 
 .recent-submissions-head {
-	color: #797dd4;
-	border-bottom: 5px solid #797dd4;
+	color: #12295D;
+	border-bottom: 5px solid #1d4196;
 	font-size: 120%;
 	margin-top: -10px;
 }
 
 .top-items-head {
-	color: #ccab28;
-	border-bottom: 5px solid #ccab28;
+	color: #12295D;
+	border-bottom: 5px solid #12295D;
 	font-size: 120%;
 	margin-top: -10px;
 }
@@ -59,32 +59,32 @@
 
 
 .PUB {
-	color: #5cb811 !important;
-	background-color: #dff0d8 !important;
+	color: #616161 !important;
+	background-color: #f5f5f5 !important;
 }
 
 .label-PUB {
-  background-color: #5cb811;
+  background-color: #616161;
 }
 
 
 .RES {
-	color: #c62d1f !important;
-	background-color: #f2dede !important;
+	color: #616161 !important;
+	background-color: #f5f5f5 !important;
 }
 
 .label-RES {
-  background-color: #c62d1f;
+  background-color: #616161;
 }
 
 
 .ACA,.PDT {
-	color: #ffab23 !important;
-	background-color: #fcf8e3 !important;
+	color: #616161 !important;
+	background-color: #f5f5f5 !important;
 }
 
 .label-ACA, .label-PDT {
-  background-color: #ffab23;
+  background-color: #616161;
 }
 
 #cz_cuni_mff_ufal_dspace_app_xmlui_aspect_statistics_GAStatisticsTransformer_div_chart_id {
@@ -356,7 +356,7 @@ ul.ds-referenceSet-list {
 }
 
 .accordion-heading:hover {
-  color: #7479b8;
+  color: #12295D;
 }
 
 #s2id_aspect_administrative_item_EditItemMetadataForm_field_field {

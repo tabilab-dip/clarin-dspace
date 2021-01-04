@@ -40,13 +40,9 @@
 					<li class="always-open hidden-xs">
 						<div style="background-color: #FFFFFF;" class="clearfix">
 							<div class="col-sm-7" style="height: 120px; position: relative;">
-								<a href="/lindat">
-									<img alt="LINDAT/CLARIAH-CZ logo" class="img-responsive" style="position: absolute; top: 0px; bottom: 0px; left: 0px; right: 0px; padding: 20px;" src="{$context-path}/themes/UFAL/images/lindat/lindat-logo-new-sm.png" />
-								</a>
-							</div>
-							<div class="col-sm-5 text-center" style="height: 120px; position: relative;">
-								<a href="http://www.clarin.eu/">
-									<img alt="CLARIN logo" class="img-responsive" style="position: absolute; bottom: 0px; left: 0px; right: 0px; padding: 10px;" src="{$context-path}/themes/UFAL/images/lindat/clarin-logo.png" />
+								<a href="/">
+                                    <img alt="TABILAB logo" class="img-responsive" style="position: absolute; top: 0px; bottom: 0px; left: 0px; right: 0px; padding: 20px;" src="{$context-path}/themes/UFAL/images/lindat/tabilab_logo.png" />
+                                
 								</a>
 							</div>
 						</div>					
@@ -170,9 +166,11 @@
     		<xsl:when test="$key='xmlui.EPerson.Navigation.login'">
     			<i class="fa fa-sign-in fa-lg">&#160;</i>
     		</xsl:when>
+            <!--
     		<xsl:when test="$key='xmlui.EPerson.Navigation.discojuice.login'">
     			<i class="fa fa-sign-in fa-lg">&#160;</i>
     		</xsl:when>    		
+            -->
     		<xsl:when test="$key='xmlui.administrative.Navigation.context_head'">
     			<i class="fa fa-list fa-lg">&#160;</i>
     		</xsl:when>
@@ -184,7 +182,7 @@
     		</xsl:when>
 			<xsl:when test="$key='xmlui.EPerson.Navigation.profile'">
     			<i class="fa fa-user fa-lg">&#160;</i>
-    		</xsl:when>    		    		    		
+    		</xsl:when>   	    		    		
 			<xsl:when test="$key='xmlui.EPerson.Navigation.helpdesk'">
     			<i class="fa fa-envelope fa-lg">&#160;</i>
     		</xsl:when>    		    		    		    		
@@ -245,15 +243,19 @@
 			<xsl:when test="$key='xmlui.EPerson.Navigation.about-head'">
     			<i class="fa fa-info-circle fa-lg">&#160;</i>
     		</xsl:when>    		    		    		
-			<xsl:when test="$key='xmlui.EPerson.Navigation.deposit'">
+			<!--
+            <xsl:when test="$key='xmlui.EPerson.Navigation.deposit'">
 				<i class="fa fa-upload fa-lg">&#160;</i>
     		</xsl:when>
+            -->
 			<xsl:when test="$key='xmlui.EPerson.Navigation.cite'">
 				<i class="fa fa-quote-right fa-lg">&#160;</i>
     		</xsl:when>
+            <!--
 			<xsl:when test="$key='xmlui.EPerson.Navigation.item-lifecycle'">
 				<i class="fa fa-refresh fa-lg">&#160;</i>
     		</xsl:when>
+            -->
 			<xsl:when test="$key='xmlui.EPerson.Navigation.faq'">
 				<i class="fa fa-question fa-lg">&#160;</i>
     		</xsl:when>

@@ -284,7 +284,9 @@
 				<xsl:call-template name="top-banner" />
 				
 				<!-- A line with lindat branding colors -->
-				<div class="row hidden-xs" style="background: url('{$theme-path}/images/lindat_color_line.png'); height: 3px;">&#160;</div>
+				<!--
+                <div class="row hidden-xs" style="background: url('{$theme-path}/images/lindat_color_line.png'); height: 3px;">&#160;</div>
+                -->
 
 		       	<div class="visible-xs text-center" style="margin-top: 5px; ">
 					<button id="showhidemenu" type="button" class="btn btn-default btn-sm" style="border-radius: 30px; width: 100%;">
@@ -621,7 +623,7 @@
                         </xsl:attribute>
                 <div class="row">
 					<div class="input-group input-group-lg col-md-6 col-md-offset-3">
-						<span class="input-group-addon"><i class="fa fa-search fa-lg" style="color: #7479B8;">&#160;</i></span>
+						<span class="input-group-addon"><i class="fa fa-search fa-lg" style="color: #12295D;">&#160;</i></span>
 						<input class="form-control" type="text">
 							<xsl:attribute name="name">
 								<xsl:value-of select="/dri:document/dri:meta/dri:pageMeta/dri:metadata[@element='search'][@qualifier='queryField']" />
@@ -844,7 +846,8 @@
 	</xsl:template>
 	
 	<xsl:template name="top-banner">
-	<div class="row hidden-xs">
+	<!--
+    <div class="row hidden-xs">
 		<div style="height: 160px;" class="carousel col-xs-12 col-sm-12 col-md-7 col-lg-8" id="layerslider">
 			<ol class="carousel-indicators">
 				<li class="active" data-slide-to="0" data-target="#layerslider" />
@@ -889,15 +892,12 @@
 			<div class="row">
 				<div style="height: 160px; position: relative;" class="col-md-7 col-lg-7">
 				  <a href="/lindat">
-			            <img src="{$context-path}/themes/UFAL/images/lindat/lindat-logo-new-sm.png" style="position: absolute; height: 60%; top: 0px; bottom: 0px; margin: auto;" class="logo" alt="LINDAT/CLARIAH-CZ logo" /></a>
+			            <img src="{$context-path}/themes/UFAL/images/lindat/lindat-logo-new-sm.png" style="position: absolute; height: 60%; top: 0px; bottom: 0px; margin: auto;" class="logo" alt="TABILAB logo" /></a>
 				</div>
-		                <div style="height: 160px; position: relative;" class="col-md-5 col-lg-5">
-				    <a href="http://www.clarin.eu/">
-		                    <img src="{$context-path}/themes/UFAL/images/lindat/clarin-logo.png" style="position: absolute; height: 70%; top: 0px; bottom: 0px; margin: auto;" class="logo" alt="CLARIN logo" /></a>
-		                </div>
 			</div>
         </div>		
 	</div>	
+    -->
 	</xsl:template>
 </xsl:stylesheet>
 
