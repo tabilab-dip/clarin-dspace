@@ -111,6 +111,34 @@ ANT_WITH_CONF:=ant -Doverwrite=true
 HIDE_PASSW:=sed '/Password/Id'
 
 
+dbg:
+	echo ${DSPACE_BIN}
+	echo "-----------------------"
+	echo ${DIR_INSTALLATION}
+	echo "-----------------------"
+	echo ${DIR_LINDAT_THEME_IN_WEBAPPS}
+	echo "-----------------------"
+	echo ${DIR_DATABASE_BACKUP}
+	echo "-----------------------"
+	echo ${LOCAL_CONF}
+	echo "-----------------------"
+	echo ${BASE}
+	echo "-----------------------"
+	echo ${PROJECT_DIR}
+	echo "-----------------------"
+	echo ${DIR_CONF}
+	echo "-----------------------"
+	echo ${DIR_SUBST}
+	echo "-----------------------"
+	echo ${DIR_SOURCE}
+	echo "-----------------------"
+	echo ${DIR_BUILD}
+	echo "-----------------------"
+	echo ${DIR_UTILITIES}
+	echo "-----------------------"
+	echo ${DIR_DEPLOY_LOGS}
+	echo "-----------------------"
+
 #======================================================
 # Goals
 #======================================================
