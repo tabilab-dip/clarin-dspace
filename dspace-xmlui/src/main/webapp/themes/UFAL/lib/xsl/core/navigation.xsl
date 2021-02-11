@@ -41,7 +41,7 @@
 						<div style="background-color: #FFFFFF;" class="clearfix">
 							<div class="col-sm-7" style="height: 120px; position: relative;">
 								<a href="/">
-                                    <img alt="TABILAB logo" class="img-responsive" style="position: absolute; top: 0px; bottom: 0px; left: 0px; right: 0px; padding: 20px;" src="{$context-path}/themes/UFAL/images/lindat/tabilab_logo.png" />
+                                    <img alt="TABILAB logo" class="img-responsive" style="position: absolute; top: 0px; bottom: 0px; left: 0px; right: 0px; padding: 20px;" src="{$context-path}/themes/UFAL/images/lindat/boun_logo.png" />
                                 
 								</a>
 							</div>
