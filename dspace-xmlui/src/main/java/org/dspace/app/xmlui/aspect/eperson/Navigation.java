@@ -60,8 +60,8 @@ import org.xml.sax.SAXException;
 
 public class Navigation extends AbstractDSpaceTransformer implements CacheableProcessingComponent
 {
-	/** log4j category */
-	private static Logger log = LoggerFactory.getLogger(Navigation.class);
+    /** log4j category */
+    private static Logger log = LoggerFactory.getLogger(Navigation.class);
 
     /** Language Strings */
     private static final Message T_my_account =
@@ -100,10 +100,10 @@ public class Navigation extends AbstractDSpaceTransformer implements CacheablePr
 
     private static final Message T_context_head = message("xmlui.administrative.Navigation.context_head");
 
-	/** Cached validity object */
-	private SourceValidity validity;
+    /** Cached validity object */
+    private SourceValidity validity;
 
-	private static final ConfigurationService configurationService= new org.dspace.utils.DSpace().getConfigurationService();
+    private static final ConfigurationService configurationService= new org.dspace.utils.DSpace().getConfigurationService();
 
     /**
      * Generate the unique key.
@@ -134,10 +134,10 @@ public class Navigation extends AbstractDSpaceTransformer implements CacheablePr
         // cache this page.
         if (request.getSitemapURI().length() == 0)
         {
-        	return null;
+            return null;
         }
         
-    	StringBuilder key;
+        StringBuilder key;
         if (context.getCurrentUser() != null)
         {
             key = new StringBuilder(context.getCurrentUser().getEmail());
@@ -166,35 +166,35 @@ public class Navigation extends AbstractDSpaceTransformer implements CacheablePr
      */
     public SourceValidity getValidity() 
     {
-    	if (this.validity == null)
-    	{
-    		// Only use the DSpaceValidity object is someone is logged in.
-    		if (context.getCurrentUser() != null)
-    		{
-		        try {
-		            DSpaceValidity validity = new DSpaceValidity();
-		            
-		            validity.add(eperson);
-		            
-		            Group[] groups = Group.allMemberGroups(context, eperson);
-		            for (Group group : groups)
-		            {
-		            	validity.add(group);
-		            }
-		            
-		            this.validity = validity.complete();
-		        } 
-		        catch (SQLException sqle)
-		        {
-		            // Just ignore it and return invalid.
-		        }
-    		}
-    		else
-    		{
-    			this.validity = NOPValidity.SHARED_INSTANCE;
-    		}
-    	}
-    	return this.validity;
+        if (this.validity == null)
+        {
+            // Only use the DSpaceValidity object is someone is logged in.
+            if (context.getCurrentUser() != null)
+            {
+                try {
+                    DSpaceValidity validity = new DSpaceValidity();
+                    
+                    validity.add(eperson);
+                    
+                    Group[] groups = Group.allMemberGroups(context, eperson);
+                    for (Group group : groups)
+                    {
+                        validity.add(group);
+                    }
+                    
+                    this.validity = validity.complete();
+                } 
+                catch (SQLException sqle)
+                {
+                    // Just ignore it and return invalid.
+                }
+            }
+            else
+            {
+                this.validity = NOPValidity.SHARED_INSTANCE;
+            }
+        }
+        return this.validity;
     }
     
     /**
@@ -203,14 +203,15 @@ public class Navigation extends AbstractDSpaceTransformer implements CacheablePr
     public void addOptions(Options options) throws SAXException, WingException,
             UIException, SQLException, IOException, AuthorizeException
     {
-    	/* Create skeleton menu structure to ensure consistent order between aspects,
-    	 * even if they are never used 
-    	 */
+        /* Create skeleton menu structure to ensure consistent order between aspects,
+         * even if they are never used 
+         */
         options.addList("browse");
         List account = options.addList("account");
         List about = options.addList("about");
         List contextList = options.addList("context");
         options.addList("administrative");
+        
         
         account.setHead(T_my_account);
         EPerson eperson = this.context.getCurrentUser();
@@ -221,35 +222,35 @@ public class Navigation extends AbstractDSpaceTransformer implements CacheablePr
             //account.addItemXref(contextPath+"/profile",T_profile.parameterize(fullName));
             account.addItemXref(contextPath+"/profile",T_profile);
         } 
-        //--else 
-        //--{
-        //--    // UFAL
-        //--    account.addItem().addXref(contextPath + "/login",
-        //--            T_discojuice_login, "signon");
-        //--
-        //--    final javax.servlet.http.HttpServletRequest hreq = (javax.servlet.http.HttpServletRequest) this.objectModel
-        //--            .get(org.apache.cocoon.environment.http.HttpEnvironment.HTTP_REQUEST_OBJECT);
-        //--
-        //--    String redirect = hreq.getPathInfo();
-        //--    String query = hreq.getQueryString();
-        //--    if(!StringUtils.isBlank(query)){
-        //--    	redirect += "?" + query;
-        //--    }
-        //--    if (redirect.endsWith(".continue"))
-        //--    {
-        //--        // Don't remember continuation addresses #896
-        //--        redirect = "login"; // See ShibbolethAction or
-        //--                            // AuthenticateAction
-        //--    }
-        //--    hreq.getSession()
-        //--            .setAttribute("xmlui.user.loginredirect", redirect);
-        //--
-        //--    if (ConfigurationManager.getBooleanProperty(
-        //--            "xmlui.user.registration", true))
-        //--    {
-        //--        account.addItemXref(contextPath + "/register", T_register);
-        //--    }
-        //--}
+        else 
+        {
+            // UFAL
+            account.addItem().addXref(contextPath + "/login",
+                    T_discojuice_login, "signon");
+
+            final javax.servlet.http.HttpServletRequest hreq = (javax.servlet.http.HttpServletRequest) this.objectModel
+                    .get(org.apache.cocoon.environment.http.HttpEnvironment.HTTP_REQUEST_OBJECT);
+
+            String redirect = hreq.getPathInfo();
+            String query = hreq.getQueryString();
+            if(!StringUtils.isBlank(query)){
+                redirect += "?" + query;
+            }
+            if (redirect.endsWith(".continue"))
+            {
+                // Don't remember continuation addresses #896
+                redirect = "login"; // See ShibbolethAction or
+                                    // AuthenticateAction
+            }
+            hreq.getSession()
+                    .setAttribute("xmlui.user.loginredirect", redirect);
+
+            if (ConfigurationManager.getBooleanProperty(
+                    "xmlui.user.registration", true))
+            {
+                account.addItemXref(contextPath + "/register", T_register);
+            }
+        }
         
         // about
         about.setHead( T_about_head );
@@ -268,15 +269,15 @@ public class Navigation extends AbstractDSpaceTransformer implements CacheablePr
         //context
         // Context Administrative options
         DSpaceObject dso = HandleUtil.obtainHandle(objectModel);
-    	if (dso instanceof Item)
-    	{
-    		Item item = (Item) dso;
-    		if (item.canEditMetadata() && !AuthorizeManager.isAdmin(context, item))
-    		{
+        if (dso instanceof Item)
+        {
+            Item item = (Item) dso;
+            if (item.canEditMetadata() && !AuthorizeManager.isAdmin(context, item))
+            {
                     contextList.setHead(T_context_head);
                     contextList.addItem().addXref(contextPath+"/edit/item?itemID="+item.getID(), "Edit metadata");
             }
-    	}
+        }
 
     }
 
