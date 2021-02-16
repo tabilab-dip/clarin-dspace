@@ -86,8 +86,8 @@ public class Navigation extends AbstractDSpaceTransformer implements CacheablePr
     private static final Message T_logout =
         message("xmlui.EPerson.Navigation.logout");
     
-    //private static final Message T_login =
-    //    message("xmlui.EPerson.Navigation.login");
+    private static final Message T_login =
+        message("xmlui.EPerson.Navigation.login");
     
     private static final Message T_register =
         message("xmlui.EPerson.Navigation.register");
@@ -98,7 +98,7 @@ public class Navigation extends AbstractDSpaceTransformer implements CacheablePr
     private static final Message T_discojuice_login =
         message("xmlui.EPerson.Navigation.discojuice.login");
 
-    private static final Message T_context_head 				= message("xmlui.administrative.Navigation.context_head");
+    private static final Message T_context_head = message("xmlui.administrative.Navigation.context_head");
 
 	/** Cached validity object */
 	private SourceValidity validity;
@@ -221,44 +221,44 @@ public class Navigation extends AbstractDSpaceTransformer implements CacheablePr
             //account.addItemXref(contextPath+"/profile",T_profile.parameterize(fullName));
             account.addItemXref(contextPath+"/profile",T_profile);
         } 
-        else 
-        {
-            // UFAL
-            account.addItem().addXref(contextPath + "/login",
-                    T_discojuice_login, "signon");
-
-            final javax.servlet.http.HttpServletRequest hreq = (javax.servlet.http.HttpServletRequest) this.objectModel
-                    .get(org.apache.cocoon.environment.http.HttpEnvironment.HTTP_REQUEST_OBJECT);
-
-            String redirect = hreq.getPathInfo();
-            String query = hreq.getQueryString();
-            if(!StringUtils.isBlank(query)){
-            	redirect += "?" + query;
-            }
-            if (redirect.endsWith(".continue"))
-            {
-                // Don't remember continuation addresses #896
-                redirect = "login"; // See ShibbolethAction or
-                                    // AuthenticateAction
-            }
-            hreq.getSession()
-                    .setAttribute("xmlui.user.loginredirect", redirect);
-
-            if (ConfigurationManager.getBooleanProperty(
-                    "xmlui.user.registration", true))
-            {
-                account.addItemXref(contextPath + "/register", T_register);
-            }
-        }
+        //--else 
+        //--{
+        //--    // UFAL
+        //--    account.addItem().addXref(contextPath + "/login",
+        //--            T_discojuice_login, "signon");
+        //--
+        //--    final javax.servlet.http.HttpServletRequest hreq = (javax.servlet.http.HttpServletRequest) this.objectModel
+        //--            .get(org.apache.cocoon.environment.http.HttpEnvironment.HTTP_REQUEST_OBJECT);
+        //--
+        //--    String redirect = hreq.getPathInfo();
+        //--    String query = hreq.getQueryString();
+        //--    if(!StringUtils.isBlank(query)){
+        //--    	redirect += "?" + query;
+        //--    }
+        //--    if (redirect.endsWith(".continue"))
+        //--    {
+        //--        // Don't remember continuation addresses #896
+        //--        redirect = "login"; // See ShibbolethAction or
+        //--                            // AuthenticateAction
+        //--    }
+        //--    hreq.getSession()
+        //--            .setAttribute("xmlui.user.loginredirect", redirect);
+        //--
+        //--    if (ConfigurationManager.getBooleanProperty(
+        //--            "xmlui.user.registration", true))
+        //--    {
+        //--        account.addItemXref(contextPath + "/register", T_register);
+        //--    }
+        //--}
         
         // about
         about.setHead( T_about_head );
-        about.addItemXref(configurationService.getPropertyAsType("lr.navigation.deposit.link", contextPath + "/page/deposit"),
-                T_deposit);
+        //about.addItemXref(configurationService.getPropertyAsType("lr.navigation.deposit.link", contextPath + "/page/deposit"),
+        //        T_deposit);
         about.addItemXref(configurationService.getPropertyAsType("lr.navigation.cite.link", contextPath + "/page/cite"),
                 T_cite);
-        about.addItemXref(configurationService.getPropertyAsType("lr.navigation.lifecycle.link", contextPath + "/page/item-lifecycle"),
-                T_lifecycle );
+        //about.addItemXref(configurationService.getPropertyAsType("lr.navigation.lifecycle.link", contextPath + "/page/item-lifecycle"),
+        //        T_lifecycle );
         about.addItemXref(configurationService.getPropertyAsType("lr.navigation.faq.link", contextPath + "/page/faq"),
                 T_faq);
         about.addItemXref(configurationService.getPropertyAsType("lr.navigation.about.link", contextPath + "/page/about"),
