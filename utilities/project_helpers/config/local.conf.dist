@@ -4,6 +4,7 @@
 
 # PID service
 # type o service; for now only epic and epic2 are supported
+# xxx: handle server stuff
 lr.pid.service.type =
 lr.pid.service.url = https://handle.gwdg.de/pidservice/
 lr.pid.service.user = 
@@ -19,7 +20,7 @@ lr.pid.community.configurations = community=*,prefix=99999,type=local,canonical_
 # if true, PID metadata will be filled with object metadata like title
 lr.pid.resolvemetadata = true
 
-handle.canonical.prefix = http://hdl.handle.net/
+handle.canonical.prefix = https://hdl.handle.net/
 handle.prefix = 123456789
 handle.dir=${dspace.dir}/handle-server
 
@@ -27,21 +28,23 @@ lr.reserve.pid.on.start = false
 
 
 # UFAL mounted assetstore for restricted item harvesting. Please mind the trailing slash
-lr.harvestable.assetstore =
+# xxx: When you are cloning you repository from one machine to another, this option will allow you to obtain the files from disk and not via http
+lr.harvestable.assetstore = 
 
 
 # DSpace host name - should match base URL. Do not include protocol i.e. http or https and do not include port, this is only the name of server.
 # Also do not use localhost because using this property some external links will be generated.
-dspace.hostname = ufal-point-dev.ms.mff.cuni.cz
+# xxx: this file and clarin-dspace/dspace/config/spiders/ufal.ignore.txt
+dspace.hostname = lvh.me
 
 # DSpace base URL, the full url of the instance
 # !!! URL must NOT contain trailing slash !!!
-dspace.baseUrl = https://ufal-point-dev.ms.mff.cuni.cz/repository
+dspace.baseUrl = https://lvh.me/repository
 
 # OAI webapp url without context (eg. /request) use http
 # in theory ${dspace.baseUrl}/oai except for the http requirement
-dspace.oai.url = http://ufal-point-dev.ms.mff.cuni.cz/repository/oai
-
+dspace.oai.url = http://lvh.me/repository/oai
+#dspace.oai.url = http://localhost:8080/oai
 # DSpace URL, usually ending with /xmlui
 # DSpace base URL.  Include port number etc., but NOT trailing slash
 dspace.url = ${dspace.baseUrl}/xmlui
@@ -54,7 +57,8 @@ xmlui.google.analytics.key =
 # The name of the database that you will use for your dspace instance.
 # If the database is not created yet, this name will be used to create the new database.
 # Be careful with the trailing spaces in the name!
-lr.database = XXX-LR-DATABASE
+# xxx: to change at prod
+lr.database = db_dip
 lr.database.port = 5432
 
 # Connection URL of the database. Make sure you are using the correct port and if you are connecting to remote server,
@@ -66,7 +70,7 @@ db.driver = org.postgresql.Driver
 
 # Credentials for the database user. The user should have read/write permissions on your database.
 db.username = dspace
-db.password =
+db.password = dspace
 
 db.maxidle = -1
 db.schema =
@@ -76,7 +80,7 @@ db.statementpool = true
 db.poolname = dspacepool
 
 # UFAL Utilities database name.
-lr.utilities.database = XXX-UTILS-DATABASE
+lr.utilities.database = dp_utils
 
 # Connection URL for the Utilities database.
 lr.utilities.db.url = jdbc:postgresql://localhost:${lr.database.port}/${lr.utilities.database}
@@ -96,13 +100,14 @@ lr.dspace.version = lindat-dspace5
 dspace.install.dir = /opt/lindat-dspace/installation
 
 # A description of your dspace instance. It will be used as a description of your dspace instance for other services
-dspace.name = LINDAT/CLARIAH-CZ digital library at Institute of Formal and Applied Linguistics, Charles University
+dspace.name = TABILAB DIP project, a repository for NLP projects, tools and corpora, Bogazici University
 # Used in email templates
-lr.dspace.name.short = LINDAT/CLARIAH-CZ
+lr.dspace.name.short = TABILAB-DIP
 
-supported.locales = en, cs
+supported.locales = en
 
 default.language = en_US
+# xxx todo
 http.proxy.host =
 http.proxy.port =
 loglevel.other=INFO
@@ -124,11 +129,11 @@ mail.server.password =
 mail.server.port = 25
 
 # UFAL: Contact information
-lr.help.mail = dspace-help@ufal.mff.cuni.cz
-lr.help.phone = +420-22191-4366
-mail.from.address = dspace-noreply@ufal.mff.cuni.cz
-mail.feedback.recipient = dspace-help@ufal.mff.cuni.cz
-info.recipient = lindat-technical@ufal.mff.cuni.cz
+lr.help.mail = tabilab.dip@gmail.com
+lr.help.phone = +90 212 359 45 23/24
+mail.from.address = tabilab.dip@gmail.com
+mail.feedback.recipient = tabilab.dip@gmail.com
+info.recipient = tabilab.dip@gmail.com
 mail.alert.recipient = ${mail.admin}
 mail.registration.notify = ${mail.admin}
 
@@ -139,7 +144,7 @@ mail.admin = ${mail.feedback.recipient}
 lr.errors.email=
 
 # solr server address that your instance is using.
-solr.server = http://ufal-point-dev.ms.mff.cuni.cz:8080/repository/solr
+solr.server =  http://localhost:8080/repository/solr
 
 # Google Analytics
 # NOTE: Copy appropriate Google Analytics API key file to the location specified
@@ -241,7 +246,8 @@ lr.autocomplete.on=true
 lr.autocomplete.solr.url=${dspace.url}/JSON/solr/
 lr.autocomplete.json_static.url=${dspace.url}/static/json/
 
-lr.allow.edit.metadata = LINDAT / CLARIN Data & Tools, LRT + Open Submissions Data & Tools
+# xxx: ???
+lr.allow.edit.metadata = TABILAB DİP
 
 ############################################
 #
@@ -265,18 +271,21 @@ lr.upload.file.alert.max.file.size = 2147483648
 #
 # Shibboleth
 #
+# xxx: TODO disable
 lr.shibboleth.log.path = /opt/shibboleth-sp/var/log/shibboleth
 lr.shibboleth.log.defaultName = shibd.log
 #the place where you run shibboleth's discoFeed handler ("https://"+hostname+"/Shibboleth.sso/DiscoFeed")
-lr.shibboleth.discofeed.url = https://ufal-point-dev.ms.mff.cuni.cz/Shibboleth.sso/DiscoFeed
+lr.shibboleth.discofeed.url = https://lvh.me/Shibboleth.sso/DiscoFeed
 
 ####
 #
 # discojuice/aai url, without trailing slash
 # don't change this on ufal-point-dev!
-lr.aai.url = https://lindat.mff.cuni.cz/aai
+# xxx: TODO disable
+lr.aai.url = https://lvh.me/aai
 
 # For reports
+# xxx
 harvesterInfo.url = http://catalog.clarin.eu/oai-harvester/
 
 ############################################
@@ -289,22 +298,22 @@ lr.xmlui.user.showlanguage = false
 ###############################################
 # oai
 #mind the documentation for oai/cite and the respective apache rewrite
-lr.repository.identifier = lindat.mff.cuni.cz 
-lr.repository.sampleIdentifier = oai:lindat.mff.cuni.cz:11858/00-097C-0000-0001-487A-4
+lr.repository.identifier = lvh.me
+lr.repository.sampleIdentifier = oai:lvh.me:20.500.12124/3
 
 ####
 #
 # description-olac.xml
 ####
-lr.description.archiveURL = http://lindat.cz/
-lr.description.participant.name = Jozef Misutka
-lr.description.institution = Institute of Formal and Applied Linguistics
-lr.description.institutionURL = http://ufal.mff.cuni.cz
-lr.description.shortLocation = Prague, Czech Republic
-lr.description.location = Malostranské náměstí 25,118 00 Prague, Czech Republic
-lr.description.synopsis = http://lindat.cz
-lr.desription.access = https://lindat.mff.cuni.cz/repository/xmlui/page/about
-lr.description.archivalSubmissionPolicy = https://lindat.mff.cuni.cz/repository/xmlui/page/about
+lr.description.archiveURL = lh.me
+lr.description.participant.name = TABILAB
+lr.description.institution = Bogazici University
+lr.description.institutionURL = http://www.boun.edu.tr
+lr.description.shortLocation = Istanbul, Turkey
+lr.description.location = 34342 Bebek, Istanbul, Turkey
+lr.description.synopsis = https://lvh.me
+lr.desription.access = https://lvh.me/repository/xmlui/page/about
+lr.description.archivalSubmissionPolicy = https://lvh.me/repository/xmlui/page/about
 
 
 ############################################
@@ -330,14 +339,15 @@ lr.description.archivalSubmissionPolicy = https://lindat.mff.cuni.cz/repository/
 #lr.tracker.bitstream.site_id = 5
 #
 ############################################
-lr.tracker.enabled = true
+# xxx: TODO , add auth token
+lr.tracker.enabled = false
 lr.tracker.type = piwik
-lr.tracker.api.url = https://ufal.mff.cuni.cz/piwik/piwik.php
+lr.tracker.api.url = https://lvh.me/piwik/piwik.php
 lr.tracker.api.auth.token =
 lr.tracker.oai.site_id = 5
 lr.tracker.bitstream.site_id = 5
 
-lr.statistics.api.url = https://ufal.mff.cuni.cz/piwik/
+lr.statistics.api.url = https://lvh.me/piwik/
 lr.statistics.api.auth.token =
 lr.statistics.api.site_id = 5
 lr.statistics.report.path = ${dspace.dir}/piwik_reports
@@ -414,4 +424,6 @@ lr.description.location = Malostranské náměstí 25, 118 00 Praha, Czech Repub
 lr.description.country = Czech Republic
 lr.description.city = Prague
 
-lr.compile.time=
+lr.compile.time=Sal Şub 16 02:49:57 +03 2021
+
+lr.description.currentAsOf=2021-02-16
