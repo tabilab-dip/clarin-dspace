@@ -86,8 +86,8 @@ public class Navigation extends AbstractDSpaceTransformer implements CacheablePr
     private static final Message T_logout =
         message("xmlui.EPerson.Navigation.logout");
     
-    private static final Message T_login =
-        message("xmlui.EPerson.Navigation.login");
+    //private static final Message T_login =
+    //    message("xmlui.EPerson.Navigation.login");
     
     private static final Message T_register =
         message("xmlui.EPerson.Navigation.register");
@@ -98,7 +98,8 @@ public class Navigation extends AbstractDSpaceTransformer implements CacheablePr
     private static final Message T_discojuice_login =
         message("xmlui.EPerson.Navigation.discojuice.login");
 
-    private static final Message T_context_head = message("xmlui.administrative.Navigation.context_head");
+    private static final Message T_context_head = 
+        message("xmlui.administrative.Navigation.context_head");
 
     /** Cached validity object */
     private SourceValidity validity;
@@ -212,7 +213,6 @@ public class Navigation extends AbstractDSpaceTransformer implements CacheablePr
         List contextList = options.addList("context");
         options.addList("administrative");
         
-        
         account.setHead(T_my_account);
         EPerson eperson = this.context.getCurrentUser();
         if (eperson != null)
@@ -254,12 +254,12 @@ public class Navigation extends AbstractDSpaceTransformer implements CacheablePr
         
         // about
         about.setHead( T_about_head );
-        //about.addItemXref(configurationService.getPropertyAsType("lr.navigation.deposit.link", contextPath + "/page/deposit"),
-        //        T_deposit);
+        about.addItemXref(configurationService.getPropertyAsType("lr.navigation.deposit.link", contextPath + "/page/deposit"),
+                T_deposit);
         about.addItemXref(configurationService.getPropertyAsType("lr.navigation.cite.link", contextPath + "/page/cite"),
                 T_cite);
-        //about.addItemXref(configurationService.getPropertyAsType("lr.navigation.lifecycle.link", contextPath + "/page/item-lifecycle"),
-        //        T_lifecycle );
+        about.addItemXref(configurationService.getPropertyAsType("lr.navigation.lifecycle.link", contextPath + "/page/item-lifecycle"),
+                T_lifecycle );
         about.addItemXref(configurationService.getPropertyAsType("lr.navigation.faq.link", contextPath + "/page/faq"),
                 T_faq);
         about.addItemXref(configurationService.getPropertyAsType("lr.navigation.about.link", contextPath + "/page/about"),
