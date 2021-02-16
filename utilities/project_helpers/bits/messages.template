@@ -2790,7 +2790,7 @@
   <message key="xmlui.UFAL.dragndrop.nodescription.label">Describing file named </message>
   <!-- ufal theme -->
   <message key="UFAL.firstpage.title">Repository</message>
-  <message key="UFAL.firstpage.title.text">Welcome to TABILAB - Centre for Language Research Infrastructure in the Czech Republic</message>
+  <message key="UFAL.firstpage.title.text">Welcome to TABILAB DIP Platform</message>
   <!-- UFAL/lib/xsl/aspect/artifactbrowser/item-list.xsl -->
   <message key="xmlui.UFAL.artifactbrowser.item-contains-one-file">This item contains {0} file ({1}).</message>
   <message key="xmlui.UFAL.artifactbrowser.item-contains-many-files">This item contains {0} files ({1}).</message>

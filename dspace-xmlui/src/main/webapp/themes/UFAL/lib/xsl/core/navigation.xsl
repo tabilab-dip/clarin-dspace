@@ -39,12 +39,20 @@
 				<xsl:if test="not(//dri:div[@n='site-home'])">
 					<li class="always-open hidden-xs">
 						<div style="background-color: #FFFFFF;" class="clearfix">
-							<div class="col-sm-7" style="height: 120px; position: relative;">
-								<a href="/">
-                                    <img alt="TABILAB logo" class="img-responsive" style="position: absolute; top: 0px; bottom: 0px; left: 0px; right: 0px; padding: 20px;" src="{$context-path}/themes/UFAL/images/lindat/boun_logo.png" />
+							<div class="col-sm-7" style="height: 120px;  width: 130px; position: relative;">
+								<a href="http://www.boun.edu.tr">
+                                    <img alt="TABILAB logo" class="img-responsive" style="position: absolute; top: 0px; bottom: 0px; left: 10px; right: 0px; padding: 20px;" src="{$context-path}/themes/UFAL/images/lindat/boun_logo.png" />
                                 
 								</a>
 							</div>
+
+                            <div class="col-sm-5 text-center" style="height: 120px; width: 130px; position: relative;">
+                                <a href="http://tabilab.cmpe.boun.edu.tr/">
+                                    <img alt="Tabilab logo" class="img-responsive" style="position: absolute; bottom: 22px; left: 0px; right: 0px; padding: 10px;" src="{$context-path}/themes/UFAL/images/lindat/tabilab_long_72.png" />
+
+                                </a>
+                            </div>
+
 						</div>					
 					</li>
 				</xsl:if>
